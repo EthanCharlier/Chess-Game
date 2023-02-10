@@ -41,7 +41,7 @@ I don't know at all if this is the right way or not, maybe I could have made a d
 Second I imagine how to print the chessboard, I decided to create a `counter` that will count each piece display and would make a line break when the `counter` is a multiple of 8. I also decided to display the letters for each column and the numbers for each line for simplicity.
 <br>
 
-For pawns I created `check_return` function, which contains `var return_print = []int{8, 16, 24, 32, 40, 48, 56, 64}`, that return `true` if `counter` is equal to a value of `return_print` and `true` otherwise :
+For pawns I created `check_return` function, which contains `var return_print = []int{8, 16, 24, 32, 40, 48, 56, 64}`, that return `true` if `counter` is equal to a value of `return_print` and `fasle` otherwise :
 ```
 func check_return(counter int) bool {
 	var return_print = []int{8, 16, 24, 32, 40, 48, 56, 64}
