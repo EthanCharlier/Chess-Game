@@ -170,3 +170,8 @@ Of course I don't forget to add `1` to `counter` and print letters.
 fmt.Println("\n a  b  c  d  e  f  g  h")
 ```
 
+<br>
+<br>
+
+### How the pieces will move
+
