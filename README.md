@@ -41,7 +41,6 @@ I don't know at all if this is the right way or not, maybe I could have made a d
 Second I imagine how to print the chessboard, I decided to create a `counter` that will count each piece display and would make a line break when the `counter` is a multiple of 8. I also decided to display the letters for each column and the numbers for each line for simplicity.
 <br>
 
-#### Pawns
 For pawns I created `check_return` function, which contains `var return_print = []int{8, 16, 24, 32, 40, 48, 56, 64}`, that return `true` if `counter` is equal to a value of `return_print` and `true` otherwise :
 ```
 func check_return(counter int) bool {
@@ -57,7 +56,7 @@ func check_return(counter int) bool {
 <br>
 
 
-I go through my chessboard and I test the color :
+I go through my chessboard and I test `color` and if the position is on the right then I add the number of the line : `strconv.Itoa(((counter/8)-8)*(-1)+1)` :
 * If `color` is equal to `none`, I print `·`:
 ```
 if piece[1] == "none" {
@@ -163,5 +162,11 @@ if piece[1] == "none" {
 		}
 	}
 }
+```
+Of course I don't forget to add `1` to `counter` and print letters.
+```
+	counter += 1
+}
+fmt.Println("\n a  b  c  d  e  f  g  h")
 ```
 
