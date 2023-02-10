@@ -33,3 +33,135 @@ Here is the definition of my chessboard :
 		{"a1", "white", "tower1"}, {"b1", "white", "knight1"}, {"c1", "white", "bishop1"}, {"d1", "white", "queen"}, {"e1", "white", "king"}, {"f1", "white", "bishop2"}, {"g1", "white", "knight2"}, {"h1", "white", "tower2"}}
  ```
 I don't know at all if this is the right way or not, maybe I could have made a discionary like this : `{Position: (Color, Piece), ...}`, because indeed the position is not supposed to vary.
+
+<br>
+<br>
+
+### How to display the chessboard
+Second I imagine how to print the chessboard, I decided to create a `counter` that will count each piece display and would make a line break when the `counter` is a multiple of 8. I also decided to display the letters for each column and the numbers for each line for simplicity.
+<br>
+
+#### Pawns
+For pawns I created `check_return` function, which contains `var return_print = []int{8, 16, 24, 32, 40, 48, 56, 64}`, that return `true` if `counter` is equal to a value of `return_print` and `true` otherwise :
+```
+func check_return(counter int) bool {
+	var return_print = []int{8, 16, 24, 32, 40, 48, 56, 64}
+	for _, value := range return_print {
+		if counter == value {
+			return true
+		}
+	}
+	return false
+}
+```
+<br>
+
+
+I go through my chessboard and I test the color :
+* If `color` is equal to `none`, I print `·`:
+```
+if piece[1] == "none" {
+	if check_return(counter) {
+		fmt.Println(" ··  ", strconv.Itoa(((counter/8)-8)*(-1)+1))
+	} else {
+		fmt.Print(" ··")
+	}
+}
+```
+
+* If `color` is equal to `white`, I look what piece it's and I print it :
+```
+} else if piece[1] == "white" {
+	if strings.Contains(piece[2], "pawn") {
+		if check_return(counter) {
+			fmt.Println(" ♟   ", strconv.Itoa(((counter/8)-8)*(-1)+1))
+		} else {
+			fmt.Print(" ♟ ")
+		}
+	}
+	if strings.Contains(piece[2], "tower") {
+		if check_return(counter) {
+			fmt.Println(" ♜   ", strconv.Itoa(((counter/8)-8)*(-1)+1))
+		} else {
+			fmt.Print(" ♜ ")
+		}
+	}
+	if strings.Contains(piece[2], "knight") {
+		if check_return(counter) {
+			fmt.Println(" ♞   ", strconv.Itoa(((counter/8)-8)*(-1)+1))
+		} else {
+			fmt.Print(" ♞ ")
+		}
+	}
+	if strings.Contains(piece[2], "bishop") {
+		if check_return(counter) {
+			fmt.Println(" ♝   ", strconv.Itoa(((counter/8)-8)*(-1)+1))
+		} else {
+			fmt.Print(" ♝ ")
+		}
+	}
+	if strings.Contains(piece[2], "queen") {
+		if check_return(counter) {
+			fmt.Println(" ♛   ", strconv.Itoa(((counter/8)-8)*(-1)+1))
+		} else {
+			fmt.Print(" ♛ ")
+		}
+	}
+	if strings.Contains(piece[2], "king") {
+		if check_return(counter) {
+			fmt.Println(" ♚   ", strconv.Itoa(((counter/8)-8)*(-1)+1))
+		} else {
+			fmt.Print(" ♚ ")
+		}
+	}
+}
+```
+
+* If `color` is equal to `black`, I do the same :
+```
+} else if piece[1] == "black" {
+	if strings.Contains(piece[2], "pawn") {
+		if check_return(counter) {
+			fmt.Println(" ♙   ", strconv.Itoa(((counter/8)-8)*(-1)+1))
+		} else {
+			fmt.Print(" ♙ ")
+		}
+	}
+	if strings.Contains(piece[2], "tower") {
+		if check_return(counter) {
+			fmt.Println(" ♖   ", strconv.Itoa(((counter/8)-8)*(-1)+1))
+		} else {
+			fmt.Print(" ♖ ")
+		}
+	}
+	if strings.Contains(piece[2], "knight") {
+		if check_return(counter) {
+			fmt.Println(" ♘   ", strconv.Itoa(((counter/8)-8)*(-1)+1))
+		} else {
+			fmt.Print(" ♘ ")
+		}
+	}
+	if strings.Contains(piece[2], "bishop") {
+		if check_return(counter) {
+			fmt.Println(" ♗   ", strconv.Itoa(((counter/8)-8)*(-1)+1))
+		} else {
+			fmt.Print(" ♗ ")
+		}
+	}
+	if strings.Contains(piece[2], "queen") {
+		if check_return(counter) {
+			fmt.Println(" ♕   ", strconv.Itoa(((counter/8)-8)*(-1)+1))
+		} else {
+			fmt.Print(" ♕ ")
+		}
+	}
+	if strings.Contains(piece[2], "king") {
+		if check_return(counter) {
+			fmt.Println(" ♔   ", strconv.Itoa(((counter/8)-8)*(-1)+1))
+		} else {
+			fmt.Print(" ♔ ")
+		}
+	}
+}
+```
+
