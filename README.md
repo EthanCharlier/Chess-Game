@@ -17,7 +17,7 @@ Here is my plan :
 First I imagine how to order the information in a list, and I concluded that I could make a list in 2D like that : `{{Position, Color, Piece}, ...}`
   * <b>Position</b> -> String whose first character is a letter and the second a number.
   * <b>Color</b> -> String containing the piece color and none otherwise.
-  * <b>Piece</b> -> String containing the piece.
+  * <b>Piece</b> -> String containing the piece or empty.
 
 
 Here is the definition of my chessboard :
